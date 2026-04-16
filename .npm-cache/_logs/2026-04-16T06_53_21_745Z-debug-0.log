@@ -1,0 +1,279 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.9.2
+2 info using node@v22.14.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/itst/Downloads/Lab04 3/.npmrc
+5 silly config load:file:/Users/itst/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install @types/koa-static
+8 verbose argv "install" "--save-dev" "@types/koa-static" "--cache" "/Users/itst/Downloads/Lab04 3/.npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/itst/Downloads/Lab04 3/.npm-cache/_logs/2026-04-16T06_53_21_745Z-
+10 verbose logfile /Users/itst/Downloads/Lab04 3/.npm-cache/_logs/2026-04-16T06_53_21_745Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 silly idealTree buildDeps
+14 silly fetch manifest @types/koa-static@*
+15 silly packumentCache full:https://registry.npmjs.org/@types%2fkoa-static cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/@types%2fkoa-static 106ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/@types%2fkoa-static set size:undefined disposed:false
+18 silly placeDep ROOT @types/koa-static@4.0.4 OK for: lab04@1.0.0 want: *
+19 silly fetch manifest @types/koa-send@*
+20 silly packumentCache full:https://registry.npmjs.org/@types%2fkoa-send cache-miss
+21 http fetch GET 200 https://registry.npmjs.org/@types%2fkoa-send 239ms (cache miss)
+22 silly packumentCache full:https://registry.npmjs.org/@types%2fkoa-send set size:undefined disposed:false
+23 silly placeDep ROOT @types/koa-send@4.1.6 OK for: @types/koa-static@4.0.4 want: *
+24 silly reify moves {}
+25 silly audit bulk request {
+25 silly audit   '@cspotcode/source-map-support': [ '0.8.1' ],
+25 silly audit   '@hapi/bourne': [ '3.0.0' ],
+25 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+25 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+25 silly audit   '@jridgewell/trace-mapping': [ '0.3.9' ],
+25 silly audit   '@tsconfig/node10': [ '1.0.12' ],
+25 silly audit   '@tsconfig/node12': [ '1.0.11' ],
+25 silly audit   '@tsconfig/node14': [ '1.0.3' ],
+25 silly audit   '@tsconfig/node16': [ '1.0.4' ],
+25 silly audit   '@types/accepts': [ '1.3.7' ],
+25 silly audit   '@types/bcrypt': [ '6.0.0' ],
+25 silly audit   '@types/body-parser': [ '1.19.6' ],
+25 silly audit   '@types/connect': [ '3.4.38' ],
+25 silly audit   '@types/content-disposition': [ '0.5.9' ],
+25 silly audit   '@types/cookies': [ '0.9.2' ],
+25 silly audit   '@types/debug': [ '4.1.12' ],
+25 silly audit   '@types/express': [ '5.0.6' ],
+25 silly audit   '@types/express-serve-static-core': [ '5.1.1' ],
+25 silly audit   '@types/http-assert': [ '1.5.6' ],
+25 silly audit   '@types/http-errors': [ '2.0.5' ],
+25 silly audit   '@types/keygrip': [ '1.0.6' ],
+25 silly audit   '@types/koa': [ '3.0.1' ],
+25 silly audit   '@types/koa-bodyparser': [ '4.3.13' ],
+25 silly audit   '@types/koa-compose': [ '3.2.9' ],
+25 silly audit   '@types/koa-json': [ '2.0.24' ],
+25 silly audit   '@types/koa-logger': [ '3.1.5' ],
+25 silly audit   '@types/koa-passport': [ '6.0.3' ],
+25 silly audit   '@types/koa-router': [ '7.4.9' ],
+25 silly audit   '@types/ms': [ '2.1.0' ],
+25 silly audit   '@types/node': [ '25.3.3' ],
+25 silly audit   '@types/passport': [ '1.0.17' ],
+25 silly audit   '@types/passport-http': [ '0.3.11' ],
+25 silly audit   '@types/qs': [ '6.14.0' ],
+25 silly audit   '@types/range-parser': [ '1.2.7' ],
+25 silly audit   '@types/send': [ '1.2.1' ],
+25 silly audit   '@types/serve-static': [ '2.2.0' ],
+25 silly audit   '@types/validator': [ '13.15.10' ],
+25 silly audit   accepts: [ '1.3.8' ],
+25 silly audit   'mime-db': [ '1.52.0', '1.54.0' ],
+25 silly audit   'mime-types': [ '2.1.35', '3.0.2' ],
+25 silly audit   acorn: [ '8.16.0' ],
+25 silly audit   'acorn-walk': [ '8.3.5' ],
+25 silly audit   'ansi-styles': [ '4.3.0' ],
+25 silly audit   arg: [ '4.1.3' ],
+25 silly audit   'aws-ssl-profiles': [ '1.1.2' ],
+25 silly audit   bcrypt: [ '6.0.0' ],
+25 silly audit   bytes: [ '3.1.2' ],
+25 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+25 silly audit   'call-bound': [ '1.0.4' ],
+25 silly audit   chalk: [ '4.1.2' ],
+25 silly audit   'co-body': [ '6.2.0' ],
+25 silly audit   'media-typer': [ '0.3.0', '1.1.0' ],
+25 silly audit   'type-is': [ '1.6.18', '2.0.1' ],
+25 silly audit   'color-convert': [ '2.0.1' ],
+25 silly audit   'color-name': [ '1.1.4' ],
+25 silly audit   'content-disposition': [ '1.0.1' ],
+25 silly audit   'content-type': [ '1.0.5' ],
+25 silly audit   cookies: [ '0.9.1' ],
+25 silly audit   'copy-to': [ '2.0.1' ],
+25 silly audit   'core-util-is': [ '1.0.3' ],
+25 silly audit   'create-require': [ '1.1.1' ],
+25 silly audit   debug: [ '4.4.3', '3.2.7' ],
+25 silly audit   'deep-equal': [ '1.0.1' ],
+25 silly audit   delegates: [ '1.0.0' ],
+25 silly audit   denque: [ '2.1.0' ],
+25 silly audit   depd: [ '2.0.0', '1.1.2' ],
+25 silly audit   destroy: [ '1.2.0' ],
+25 silly audit   diff: [ '4.0.4' ],
+25 silly audit   dottie: [ '2.0.7' ],
+25 silly audit   'dunder-proto': [ '1.0.1' ],
+25 silly audit   'ee-first': [ '1.1.1' ],
+25 silly audit   encodeurl: [ '2.0.0' ],
+25 silly audit   'es-define-property': [ '1.0.1' ],
+25 silly audit   'es-errors': [ '1.3.0' ],
+25 silly audit   'es-object-atoms': [ '1.1.1' ],
+25 silly audit   'escape-html': [ '1.0.3' ],
+25 silly audit   fresh: [ '0.5.2' ],
+25 silly audit   'function-bind': [ '1.1.2' ],
+25 silly audit   'generate-function': [ '2.3.1' ],
+25 silly audit   'get-intrinsic': [ '1.3.0' ],
+25 silly audit   'get-proto': [ '1.0.1' ],
+25 silly audit   gopd: [ '1.2.0' ],
+25 silly audit   'has-flag': [ '4.0.0' ],
+25 silly audit   'has-symbols': [ '1.1.0' ],
+25 silly audit   hasown: [ '2.0.2' ],
+25 silly audit   'http-assert': [ '1.5.0' ],
+25 silly audit   'http-errors': [ '1.8.1', '2.0.1', '1.6.3' ],
+25 silly audit   statuses: [ '1.5.0', '2.0.2' ],
+25 silly audit   'humanize-number': [ '0.0.2' ],
+25 silly audit   'iconv-lite': [ '0.4.24', '0.7.2' ],
+25 silly audit   inflation: [ '2.1.0' ],
+25 silly audit   inflection: [ '1.13.4' ],
+25 silly audit   inherits: [ '2.0.4', '2.0.3' ],
+25 silly audit   'is-property': [ '1.0.2' ],
+25 silly audit   isarray: [ '1.0.0' ],
+25 silly audit   'json-stringify-safe': [ '5.0.1' ],
+25 silly audit   keygrip: [ '1.1.0' ],
+25 silly audit   koa: [ '3.1.2' ],
+25 silly audit   'koa-bodyparser': [ '4.4.1' ],
+25 silly audit   'koa-compose': [ '4.1.0' ],
+25 silly audit   'koa-is-json': [ '1.0.0' ],
+25 silly audit   'koa-json': [ '2.0.2' ],
+25 silly audit   'koa-logger': [ '4.0.0' ],
+25 silly audit   'koa-passport': [ '6.0.0' ],
+25 silly audit   'koa-router': [ '14.0.0' ],
+25 silly audit   'koa-send': [ '5.0.1' ],
+25 silly audit   'koa-static': [ '5.0.0' ],
+25 silly audit   lodash: [ '4.17.23' ],
+25 silly audit   long: [ '5.3.2' ],
+25 silly audit   'lru.min': [ '1.1.4' ],
+25 silly audit   'make-error': [ '1.3.6' ],
+25 silly audit   'math-intrinsics': [ '1.1.0' ],
+25 silly audit   moment: [ '2.30.1' ],
+25 silly audit   'moment-timezone': [ '0.5.48' ],
+25 silly audit   ms: [ '2.1.3' ],
+25 silly audit   mysql2: [ '3.19.1' ],
+25 silly audit   'named-placeholders': [ '1.1.6' ],
+25 silly audit   negotiator: [ '0.6.3' ],
+25 silly audit   'node-addon-api': [ '8.6.0' ],
+25 silly audit   'node-gyp-build': [ '4.8.4' ],
+25 silly audit   'object-inspect': [ '1.13.4' ],
+25 silly audit   'on-finished': [ '2.4.1' ],
+25 silly audit   parseurl: [ '1.3.3' ],
+25 silly audit   passport: [ '0.6.0' ],
+25 silly audit   'passport-http': [ '0.3.0' ],
+25 silly audit   'passport-strategy': [ '1.0.0' ],
+25 silly audit   'passthrough-counter': [ '1.0.0' ],
+25 silly audit   'path-is-absolute': [ '1.0.1' ],
+25 silly audit   'path-to-regexp': [ '8.3.0' ],
+25 silly audit   pause: [ '0.0.1' ],
+25 silly audit   pg: [ '8.20.0' ],
+25 silly audit   'pg-cloudflare': [ '1.3.0' ],
+25 silly audit   'pg-connection-string': [ '2.12.0' ],
+25 silly audit   'pg-hstore': [ '2.3.4' ],
+25 silly audit   'pg-int8': [ '1.0.1' ],
+25 silly audit   'pg-pool': [ '3.13.0' ],
+25 silly audit   'pg-protocol': [ '1.13.0' ],
+25 silly audit   'pg-types': [ '2.2.0' ],
+25 silly audit   pgpass: [ '1.0.5' ],
+25 silly audit   'postgres-array': [ '2.0.0' ],
+25 silly audit   'postgres-bytea': [ '1.0.1' ],
+25 silly audit   'postgres-date': [ '1.0.7' ],
+25 silly audit   'postgres-interval': [ '1.2.0' ],
+25 silly audit   'process-nextick-args': [ '2.0.1' ],
+25 silly audit   qs: [ '6.15.0' ],
+25 silly audit   'raw-body': [ '2.5.3' ],
+25 silly audit   'readable-stream': [ '2.3.8' ],
+25 silly audit   'resolve-path': [ '1.4.0' ],
+25 silly audit   setprototypeof: [ '1.1.0', '1.2.0' ],
+25 silly audit   'retry-as-promised': [ '7.1.1' ],
+25 silly audit   'safe-buffer': [ '5.1.2' ],
+25 silly audit   'safer-buffer': [ '2.1.2' ],
+25 silly audit   semver: [ '7.7.4' ],
+25 silly audit   sequelize: [ '6.37.8' ],
+25 silly audit   'sequelize-pool': [ '7.1.0' ],
+25 silly audit   'side-channel': [ '1.1.0' ],
+25 silly audit   'side-channel-list': [ '1.0.0' ],
+25 silly audit   'side-channel-map': [ '1.0.1' ],
+25 silly audit   'side-channel-weakmap': [ '1.0.2' ],
+25 silly audit   split2: [ '4.2.0' ],
+25 silly audit   'sql-escaper': [ '1.3.3' ],
+25 silly audit   'streaming-json-stringify': [ '3.1.0' ],
+25 silly audit   string_decoder: [ '1.1.1' ],
+25 silly audit   'supports-color': [ '7.2.0' ],
+25 silly audit   toidentifier: [ '1.0.1' ],
+25 silly audit   'toposort-class': [ '1.0.1' ],
+25 silly audit   'ts-node': [ '10.9.2' ],
+25 silly audit   tsscmp: [ '1.0.6' ],
+25 silly audit   typescript: [ '5.9.3' ],
+25 silly audit   underscore: [ '1.13.8' ],
+25 silly audit   'undici-types': [ '7.18.2' ],
+25 silly audit   unpipe: [ '1.0.0' ],
+25 silly audit   'util-deprecate': [ '1.0.2' ],
+25 silly audit   'utils-merge': [ '1.0.1' ],
+25 silly audit   uuid: [ '8.3.2' ],
+25 silly audit   'v8-compile-cache-lib': [ '3.0.1' ],
+25 silly audit   validator: [ '13.15.26' ],
+25 silly audit   vary: [ '1.1.2' ],
+25 silly audit   wkx: [ '0.5.0' ],
+25 silly audit   xtend: [ '4.0.2' ],
+25 silly audit   yn: [ '3.1.1' ],
+25 silly audit   '@types/koa-static': [ '4.0.4' ],
+25 silly audit   '@types/koa-send': [ '4.1.6' ]
+25 silly audit }
+26 http cache @types/koa-send@https://registry.npmjs.org/@types/koa-send/-/koa-send-4.1.6.tgz 0ms (cache hit)
+27 http cache @types/koa-static@https://registry.npmjs.org/@types/koa-static/-/koa-static-4.0.4.tgz 0ms (cache hit)
+28 silly tarball no local data for @types/koa-send@https://registry.npmjs.org/@types/koa-send/-/koa-send-4.1.6.tgz. Extracting by manifest.
+29 silly tarball no local data for @types/koa-static@https://registry.npmjs.org/@types/koa-static/-/koa-static-4.0.4.tgz. Extracting by manifest.
+30 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 183ms
+31 silly audit report {
+31 silly audit report   lodash: [
+31 silly audit report     {
+31 silly audit report       id: 1115806,
+31 silly audit report       url: 'https://github.com/advisories/GHSA-r5fr-rjxr-66jc',
+31 silly audit report       title: 'lodash vulnerable to Code Injection via `_.template` imports key names',
+31 silly audit report       severity: 'high',
+31 silly audit report       vulnerable_versions: '>=4.0.0 <=4.17.23',
+31 silly audit report       cwe: [Array],
+31 silly audit report       cvss: [Object]
+31 silly audit report     },
+31 silly audit report     {
+31 silly audit report       id: 1115810,
+31 silly audit report       url: 'https://github.com/advisories/GHSA-f23m-r3pf-42rh',
+31 silly audit report       title: 'lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`',
+31 silly audit report       severity: 'moderate',
+31 silly audit report       vulnerable_versions: '<=4.17.23',
+31 silly audit report       cwe: [Array],
+31 silly audit report       cvss: [Object]
+31 silly audit report     }
+31 silly audit report   ],
+31 silly audit report   'path-to-regexp': [
+31 silly audit report     {
+31 silly audit report       id: 1115573,
+31 silly audit report       url: 'https://github.com/advisories/GHSA-j3q9-mxjg-w52f',
+31 silly audit report       title: 'path-to-regexp vulnerable to Denial of Service via sequential optional groups',
+31 silly audit report       severity: 'high',
+31 silly audit report       vulnerable_versions: '>=8.0.0 <8.4.0',
+31 silly audit report       cwe: [Array],
+31 silly audit report       cvss: [Object]
+31 silly audit report     },
+31 silly audit report     {
+31 silly audit report       id: 1115582,
+31 silly audit report       url: 'https://github.com/advisories/GHSA-27v5-c462-wpq7',
+31 silly audit report       title: 'path-to-regexp vulnerable to Regular Expression Denial of Service via multiple wildcards',
+31 silly audit report       severity: 'moderate',
+31 silly audit report       vulnerable_versions: '>=8.0.0 <8.4.0',
+31 silly audit report       cwe: [Array],
+31 silly audit report       cvss: [Object]
+31 silly audit report     }
+31 silly audit report   ]
+31 silly audit report }
+32 silly packumentCache corgi:https://registry.npmjs.org/lodash cache-miss
+33 silly packumentCache corgi:https://registry.npmjs.org/path-to-regexp cache-miss
+34 http cache https://registry.npmjs.org/lodash 5ms (cache hit)
+35 silly packumentCache corgi:https://registry.npmjs.org/lodash set size:69555 disposed:false
+36 http cache https://registry.npmjs.org/path-to-regexp 6ms (cache hit)
+37 silly packumentCache corgi:https://registry.npmjs.org/path-to-regexp set size:66575 disposed:false
+38 silly packumentCache corgi:https://registry.npmjs.org/sequelize cache-miss
+39 http cache https://registry.npmjs.org/sequelize 2ms (cache hit)
+40 silly packumentCache corgi:https://registry.npmjs.org/sequelize set size:1345289 disposed:false
+41 silly packumentCache corgi:https://registry.npmjs.org/koa-router cache-miss
+42 http cache https://registry.npmjs.org/koa-router 6ms (cache hit)
+43 silly packumentCache corgi:https://registry.npmjs.org/koa-router set size:90161 disposed:false
+44 http fetch GET 200 https://registry.npmjs.org/@types/koa-send/-/koa-send-4.1.6.tgz 205ms (cache miss)
+45 http fetch GET 200 https://registry.npmjs.org/@types/koa-static/-/koa-static-4.0.4.tgz 211ms (cache miss)
+46 silly ADD node_modules/@types/koa-send
+47 silly ADD node_modules/@types/koa-static
+48 verbose cwd /Users/itst/Downloads/Lab04 3
+49 verbose os Darwin 25.3.0
+50 verbose node v22.14.0
+51 verbose npm  v10.9.2
+52 verbose exit 0
+53 info ok

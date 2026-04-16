@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog API Docs</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #redoc-container {
+      min-height: 100vh;
+    }
+
+    .loading {
+      font-family: Roboto, Arial, sans-serif;
+      padding: 24px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div id="redoc-container">
+    <div class="loading">Loading API documentation…</div>
+  </div>
+  <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      var container = document.getElementById('redoc-container');
+      if (window.Redoc && container) {
+        Redoc.init('/docs/yaml/openapi.yaml', {}, container);
+      } else if (container) {
+        container.innerHTML = '<div class="loading">Unable to load the ReDoc viewer. Please check your network connection or CDN access.</div>';
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,439 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: BackEnd Demonstration API
+  description: A simple blog API.
+  contact:
+    name: Lab 7 Student
+    email: student@example.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: http://localhost:10888
+    description: Development server
+tags:
+  - name: API
+    description: General API endpoints.
+  - name: Users
+    description: API endpoints for user management.
+  - name: Articles
+    description: Access and perform CRUD operations on blog entries.
+  - name: Auth
+    description: Authentication-protected endpoints.
+paths:
+  /api/v1:
+    get:
+      tags:
+        - API
+      summary: Welcome message
+      description: Return a simple message from the API root.
+      responses:
+        '200':
+          description: Welcome message returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+  /api/v1/private:
+    get:
+      tags:
+        - Auth
+      summary: Protected endpoint
+      description: Return a response only when valid HTTP Basic credentials are supplied.
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Authentication succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Authentication failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/users:
+    get:
+      tags:
+        - Users
+      summary: List users
+      description: Return all users without password hashes.
+      responses:
+        '200':
+          description: A list of user records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags:
+        - Users
+      summary: Create a user
+      description: Create a new user record.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '201':
+          description: User created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCreate'
+        '500':
+          description: User creation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/users/login:
+    post:
+      tags:
+        - Users
+      summary: Login
+      description: Validate a username and password pair.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Invalid password.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/users/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        description: Numeric identifier for the user.
+    get:
+      tags:
+        - Users
+      summary: Get user by id
+      description: Return a single user record.
+      responses:
+        '200':
+          description: User found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User was not found.
+    put:
+      tags:
+        - Users
+      summary: Update user
+      description: Update an existing user record.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: Update confirmation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+        '500':
+          description: User update failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - Users
+      summary: Delete user
+      description: Delete a user record by identifier.
+      responses:
+        '200':
+          description: Delete confirmation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+        '500':
+          description: User deletion failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/articles:
+    get:
+      tags:
+        - Articles
+      summary: List articles
+      description: Return a paginated list of articles.
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+          description: Page number to retrieve.
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            default: 10
+          description: Number of records per page.
+        - in: query
+          name: order
+          schema:
+            type: string
+            default: id
+          description: Column name used to sort the result set.
+      responses:
+        '200':
+          description: A list of article records.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+    post:
+      tags:
+        - Articles
+      summary: Create an article
+      description: Create a new article record.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticleCreate'
+      responses:
+        '201':
+          description: Article created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArticleCreate'
+        '500':
+          description: Article creation failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/articles/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        description: Numeric identifier for the article.
+    get:
+      tags:
+        - Articles
+      summary: Get article by id
+      description: Return a single article record.
+      responses:
+        '200':
+          description: Article found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Article'
+        '404':
+          description: Article was not found.
+    put:
+      tags:
+        - Articles
+      summary: Update article
+      description: Update an existing article record.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticleUpdate'
+      responses:
+        '200':
+          description: Update confirmation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+        '500':
+          description: Article update failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - Articles
+      summary: Delete article
+      description: Delete an article record by identifier.
+      responses:
+        '200':
+          description: Delete confirmation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+        '500':
+          description: Article deletion failed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        err:
+          type: string
+      additionalProperties: true
+    AuthResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          format: password
+      required:
+        - username
+        - password
+    LoginResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        id:
+          type: integer
+        username:
+          type: string
+      required:
+        - message
+        - id
+        - username
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        username:
+          type: string
+        about:
+          type: string
+        dateRegistered:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        avatarURL:
+          type: string
+          format: uri
+      additionalProperties: true
+    UserCreate:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        username:
+          type: string
+        about:
+          type: string
+        dateRegistered:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        avatarURL:
+          type: string
+          format: uri
+        password:
+          type: string
+          format: password
+      required:
+        - username
+        - password
+      additionalProperties: true
+    UserUpdate:
+      type: object
+      description: Partial or full user payload accepted by the update endpoint.
+      additionalProperties: true
+    Article:
+      type: object
+      description: Article records are returned directly from the database, so the exact field set may vary by lab setup.
+      additionalProperties: true
+      properties:
+        id:
+          type: integer
+    ArticleCreate:
+      type: object
+      description: Article payload accepted by the API.
+      additionalProperties: true
+    ArticleUpdate:
+      type: object
+      description: Article payload accepted for partial or full updates.
+      additionalProperties: true
+
+

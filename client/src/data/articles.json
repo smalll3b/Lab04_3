@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "title": "hello article",
+    "fullText": "some text here to fill the body",
+    "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 2,
+    "title": "another article",
+    "fullText": "again here is some text to fill",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 3,
+    "title": "coventry university",
+    "fullText": "some news about coventry university",
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 4,
+    "title": "smart campus",
+    "fullText": "smart campus is coming to IVE",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 5,
+    "title": "react router",
+    "fullText": "dynamic navigation makes the SPA feel fast",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": 6,
+    "title": "ant design",
+    "fullText": "reusable UI components help us build quickly",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
+  }
+]
+

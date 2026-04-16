@@ -1,0 +1,113 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.88);
+  background: #f5f7fb;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  background: #f5f7fb;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 180px;
+}
+
+.brand-title,
+.brand-subtitle {
+  color: #fff !important;
+  margin: 0 !important;
+}
+
+.nav-menu {
+  flex: 1;
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.auth-block {
+  margin-left: auto;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.auth-status {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.app-content {
+  padding: 24px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.app-footer {
+  text-align: center;
+  background: transparent;
+}
+
+.page-card,
+.demo-card {
+  margin-bottom: 24px;
+}
+
+.hero-banner {
+  padding: 24px;
+  background: linear-gradient(135deg, #1677ff 0%, #69b1ff 100%);
+  color: white;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.hero-banner h1,
+.hero-banner p {
+  color: white;
+}
+
+.article-grid {
+  margin-top: 8px;
+}
+
+.article-card {
+  height: 100%;
+}
+
+.demo-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.detail-actions {
+  margin-top: 16px;
+}
+
+
