@@ -26,7 +26,21 @@ export const normalizeArticle = (article: ApiArticle): NormalizedArticle => {
   const idValue = article.id ?? article.ID ?? article.articleId ?? article.article_id ?? '';
   const id = typeof idValue === 'number' ? String(idValue) : String(idValue);
   const title = firstString(article, ['title', 'name', 'headline', 'subject']) || `Article ${id || '?'}`;
-  const body = firstString(article, ['fullText', 'fulltext', 'content', 'body', 'description', 'articleText', 'text']) || 'No article content available.';
+  const body =
+    firstString(article, [
+      'fullText',
+      'fulltext',
+      'full_text',
+      'allText',
+      'alltext',
+      'all_text',
+      'content',
+      'body',
+      'description',
+      'articleText',
+      'article_text',
+      'text',
+    ]) || 'No article content available.';
   const image = firstString(article, ['image', 'imageURL', 'imageUrl', 'cover', 'thumbnail']) || undefined;
 
   return {
