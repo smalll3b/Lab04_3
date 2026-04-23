@@ -23,9 +23,14 @@ const Dashboard = () => {
   const [loadingPrivate, setLoadingPrivate] = useState(true);
   const [session, setSession] = useState(loadAuthSession());
 
-  const onClick = () => {
+  const onPrimaryClick = () => {
     console.log(counter++);
     setClicks((value) => value + 1);
+  };
+
+  const onDangerClick = () => {
+      console.log(counter--);
+    setClicks((value) => value - 1);
   };
 
   React.useEffect(() => onAuthChanged(() => setSession(loadAuthSession())), []);
@@ -95,10 +100,10 @@ const Dashboard = () => {
           </Col>
         </Row>
         <div className="demo-actions">
-          <Button type="primary" icon={<ArrowRightOutlined />} onClick={onClick}>
+          <Button type="primary" icon={<ArrowRightOutlined />} onClick={onPrimaryClick}>
             Primary button
           </Button>
-          <Button type="primary" danger onClick={onClick}>
+          <Button type="primary" danger onClick={onDangerClick}>
             Danger button
           </Button>
         </div>
@@ -117,5 +122,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
 
