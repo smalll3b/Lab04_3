@@ -85,30 +85,45 @@ const deleteUser = async (ctx: RouterContext, next: any) => {
  * Validate login credentials using the stored password hash.
  */
 const login = async (ctx: RouterContext, next: any) => {
-  const body = ctx.request.body as any;
-  const { username, password } = body;
-  const users = await model.getByUsernameWithPassword(username) as any[];
-  if (users.length) {
-    const valid = await bcrypt.compare(password, users[0].password);
-    if (valid) {
-      ctx.status = 200;
-      ctx.body = { message: 'Login successful', id: users[0].id, username: users[0].username };
-    } else {
-      ctx.status = 401;
-      ctx.body = { error: 'Invalid credentials' };
+  try {
+    const body = ctx.request.body as any;
+    const { username, password } = body ?? {};
+
+    if (!username || !password) {
+      ctx.status = 400;
+      ctx.body = { error: 'Username and password are required' };
+      await next();
+      return;
     }
-  } else {
-    ctx.status = 404;
-    ctx.body = { error: 'User not found' };
+
+    const users = await model.getByUsernameWithPassword(username) as any[];
+    if (users.length) {
+      const valid = await bcrypt.compare(password, users[0].password);
+      if (valid) {
+        ctx.status = 200;
+        ctx.body = { message: 'Login successful', id: users[0].id, username: users[0].username };
+      } else {
+        ctx.status = 401;
+        ctx.body = { error: 'Invalid credentials' };
+      }
+    } else {
+      ctx.status = 404;
+      ctx.body = { error: 'User not found' };
+    }
+  } catch (error) {
+    console.error('Login failed', error);
+    ctx.status = 500;
+    ctx.body = { error: 'Unable to login' };
   }
+
   await next();
 }
 
 router.get('/', getAll);
 router.post('/', bodyParser(), createUser);
+router.post('/login', bodyParser(), login);
 router.get('/:id', getById);
 router.put('/:id', bodyParser(), updateUser);
 router.del('/:id', deleteUser);
-router.post('/login', bodyParser(), login);
 
 export { router };

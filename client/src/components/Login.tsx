@@ -23,7 +23,9 @@ const Login = () => {
       navigate('/dashboard');
     } catch (error) {
       const errorMessage = axios.isAxiosError(error)
-        ? error.response?.data?.error ?? error.response?.data?.message ?? error.message
+        ? error.code === 'ERR_NETWORK'
+          ? `Unable to reach the API server at ${api.uri}. Please make sure the backend is running.`
+          : error.response?.data?.error ?? error.response?.data?.message ?? error.message
         : 'Unable to login';
       message.error(errorMessage);
     } finally {

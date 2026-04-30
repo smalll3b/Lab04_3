@@ -4,6 +4,7 @@ import { Alert, Card, Col, Row, Spin, Tag, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { api } from '../common/http-common';
 import { normalizeArticle, type NormalizedArticle } from '../common/article';
+import fallbackArticles from '../data/articles.json';
 
 const { Paragraph, Title } = Typography;
 
@@ -11,6 +12,11 @@ const Articles = () => {
   const [articles, setArticles] = React.useState<NormalizedArticle[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
+
+  const loadFallbackArticles = () => {
+    const data = Array.isArray(fallbackArticles) ? fallbackArticles : [];
+    setArticles(data.map((item) => normalizeArticle(item as Record<string, unknown>)));
+  };
 
   React.useEffect(() => {
     let active = true;
@@ -24,15 +30,17 @@ const Articles = () => {
         const data = Array.isArray(response.data) ? response.data : [];
 
         if (active) {
-          setArticles(data.map((item) => normalizeArticle(item as Record<string, unknown>)));
+          if (data.length) {
+            setArticles(data.map((item) => normalizeArticle(item as Record<string, unknown>)));
+          } else {
+            loadFallbackArticles();
+          }
         }
       } catch (err) {
         if (active) {
-          const message = axios.isAxiosError(err)
-            ? err.response?.data?.error ?? err.response?.data?.message ?? err.message
-            : 'Unable to load articles';
-          setError(message);
-          setArticles([]);
+          console.warn('API articles request failed, using sample articles instead.', err);
+          loadFallbackArticles();
+          setError(null);
         }
       } finally {
         if (active) {
